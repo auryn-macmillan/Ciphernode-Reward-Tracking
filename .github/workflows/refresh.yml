@@ -4,6 +4,8 @@ on:
   schedule:
     # 06:17, 14:17 and 22:17 UTC — three refreshes per day
     - cron: '17 6,14,22 * * *'
+  push:
+    branches: [main]
   workflow_dispatch: {}
 
 permissions:
