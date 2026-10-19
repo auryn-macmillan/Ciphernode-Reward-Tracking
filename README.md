@@ -6,6 +6,7 @@ mainnet launch block, split per epoch by Fibonacci weights (1:1:2:3:5:8) in
 proportion to each **node operator's** ticket-block accrual (credited tickets ×
 blocks, max 8 credits per operator).
 
+[Live app (GitHub Pages)](https://auryn-macmillan.github.io/Ciphernode-Reward-Tracking/) ·
 [Proposal text (IPFS)](https://aquamarine-added-basilisk-78.mypinata.cloud/ipfs/bafkreicnfxpcqvygwn4kmhlpmgndcavaldumzbvybtlatgahj6uwuc73xu)
 
 ## How it works
