@@ -17,6 +17,10 @@
   const fmtDate = (ts) =>
     new Date(ts * 1000).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
   const short = (a) => a.slice(0, 6) + '…' + a.slice(-4);
+  const fmtAddr = (a, ens) =>
+    ens
+      ? `<span class="ens" title="${a}">${ens}</span>`
+      : `<span class="addr-full">${a}</span>`;
 
   let STATE = null;
   let selectedEpoch = null;
@@ -78,7 +82,9 @@
     if (!e) return;
     $('#table-title').textContent = `Epoch ${e.index} · operator accrual (${e.status})`;
     const q = $('#search').value.trim().toLowerCase();
-    const rows = e.operators.filter((o) => !q || o.operator.includes(q));
+    const rows = e.operators.filter(
+      (o) => !q || o.operator.includes(q) || (o.ens ?? '').toLowerCase().includes(q),
+    );
     const cap = BigInt(STATE.program.cap);
     $('#op-table tbody').innerHTML = rows
       .map((o, i) => {
@@ -87,7 +93,7 @@
         const avg = tb / blocks; // avg credited tickets over observed span
         return `<tr>
           <td>${i + 1}</td>
-          <td class="addr">${o.operator}</td>
+          <td>${fmtAddr(o.operator, o.ens)}</td>
           <td class="num">${avg > cap ? cap : avg}</td>
           <td class="num">${fmtInt(o.ticketBlocks)}</td>
           <td class="num">${o.sharePct.toFixed(2)}%</td>
@@ -99,12 +105,35 @@
       `* Average credited tickets per block over ${fmtInt(e.blocksObserved)} observed blocks (cap ${STATE.program.cap}/operator). ` +
       `Est. payout = epoch pool × ticket-blocks ÷ total ticket-blocks (${fmtInt(e.totalTicketBlocks)}). ` +
       `Payouts are delivered VE-locked (30-day term) after the epoch's settlement sheet clears its 48h dispute window.`;
+    payloadButton(e);
+  }
+
+  // Safe tx-builder payload: served pre-built by the refresh workflow for
+  // completed epochs; the button downloads it for import at safe.global.
+  function payloadButton(e) {
+    const btn = $('#payload-btn');
+    if (e.status !== 'complete') {
+      btn.hidden = true;
+      return;
+    }
+    const url = `payouts/epoch-${e.index}.safe.json`;
+    fetch(url, { method: 'HEAD' })
+      .then((r) => {
+        btn.hidden = !r.ok;
+        btn.onclick = () => {
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `ipp-001-epoch-${e.index}.safe.json`;
+          a.click();
+        };
+      })
+      .catch(() => (btn.hidden = true));
   }
 
   function snapshot() {
     const byOp = new Map();
     for (const n of STATE.snapshot) {
-      const g = byOp.get(n.operator) ?? { nodes: 0, active: 0, tickets: 0 };
+      const g = byOp.get(n.operator) ?? { nodes: 0, active: 0, tickets: 0, ens: n.ens ?? null };
       g.nodes++;
       if (n.active) { g.active++; g.tickets += n.tickets; }
       byOp.set(n.operator, g);
@@ -113,7 +142,7 @@
     $('#snap-table tbody').innerHTML = [...byOp.entries()]
       .sort((a, b) => b[1].tickets - a[1].tickets || b[0].localeCompare(a[0]))
       .map(([op, g]) => `<tr>
-        <td class="addr">${op}</td>
+        <td>${fmtAddr(op, g.ens)}</td>
         <td class="num">${g.nodes}</td>
         <td class="num">${g.active}</td>
         <td class="num">${g.tickets}</td>

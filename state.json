@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-18T23:23:43.475Z",
-  "headBlock": "26222708",
+  "generatedAt": "2026-10-19T01:38:34.615Z",
+  "headBlock": "26223380",
   "program": {
     "id": "IPP-001",
     "name": "Initial Ciphernode Rewards Program",
@@ -54,7 +54,28 @@
     "ciphernodeRegistry": "0xC927A5B2d8F68697bC28C0670df05178c93df2d7",
     "bondingRegistry": "0x0ec90465095C21830BEcED07e032809A2Bd2915F",
     "slashingManager": "0x753109Ee36Dc65cC178875AddA30C6433e5bEEe4",
-    "ticketToken": "0xC0B5b49a3949eC4B520eF21BaCFE16e3695F3B5D"
+    "ticketToken": "0xC0B5b49a3949eC4B520eF21BaCFE16e3695F3B5D",
+    "foldToken": "0xE172e9B6cfBeeB5593bDcE3f077356FDb33af904",
+    "voteEscrow": "0x71360F335e4Ec9c010e29bA7171bc62c9B4c1F12",
+    "foundationSafe": "0x8B43b2852fc5031D01DDfCDF702973D93A2FF593",
+    "multiSend": "0x38869bf66a61cF6bDB996A6aE40D5853Fd43B526"
+  },
+  "ens": {
+    "0x1df428833f2c9fb1ef098754e5d710432450d706": "0xjoshua.eth",
+    "0x2179a7a0be3eb10c45a9aeec11f260e2bc4b1a7c": "bezpok.eth",
+    "0x2f3a1d13525748d2e6cc8eea715cefcf5b8ff833": "sybilor.eth",
+    "0x34aa3f359a9d614239015126635ce7732c18fdf3": "austingriffith.eth",
+    "0x6f9bb7e454f5b3eb2310343f0e99269dc2bb8a1d": "cp0x.eth",
+    "0x8577fbe7bb7a2c1ca7616d50e9ade57ebebd8e79": "tomteilors.eth",
+    "0x8d138c01765483cb79d787ce5933f609cbfdabcf": "adrianleb.eth",
+    "0x97843608a00e2bbc75ab0c1911387e002565dede": "buidlguidl.eth",
+    "0x998f207845419ca45fdf25a0950d156b96bab1fb": "chemy.eth",
+    "0x9b5ae497fd1bf885a40d6f99d0c57245761e053c": "terry.eth",
+    "0x9d4351a621ef5be55dc265622fd5417e6186fff6": "catonenode.eth",
+    "0xa303d8cb0ce470f772a459b4a87acb11b2978db8": "ciphernode.auryn.eth",
+    "0xd64271606a20362a3c11d1c7c92897d6e4a5d45c": "aiobkhan.eth",
+    "0xfe952cb6f4b8f4acd5337153da5c7c93dc3e44e1": "zakgriffith.eth",
+    "0xffe6d9d29480d0673c4fc46da22d21e245c8e731": "bangbaby.eth"
   },
   "epochs": [
     {
@@ -71,72 +92,84 @@
       "operators": [
         {
           "operator": "0x1df428833f2c9fb1ef098754e5d710432450d706",
+          "ens": "0xjoshua.eth",
           "ticketBlocks": "9773",
           "sharePct": 0.72,
           "estPayoutWei": "4351071628917507872858"
         },
         {
           "operator": "0x8b405dbf2f30844b608b08dad20447a6955a6c6e",
+          "ens": null,
           "ticketBlocks": "95771",
           "sharePct": 7.1,
           "estPayoutWei": "42638543023949518724196"
         },
         {
           "operator": "0x291bd021638b9aef86c6d47e29cda1cf3804bafb",
+          "ens": null,
           "ticketBlocks": "95531",
           "sharePct": 7.08,
           "estPayoutWei": "42531691781655422552141"
         },
         {
           "operator": "0x8d138c01765483cb79d787ce5933f609cbfdabcf",
+          "ens": "adrianleb.eth",
           "ticketBlocks": "83461",
           "sharePct": 6.19,
           "estPayoutWei": "37157964721281502565913"
         },
         {
           "operator": "0x0b304924faa64b0f040dca67bc5175dd6078db52",
+          "ens": null,
           "ticketBlocks": "56631",
           "sharePct": 4.2,
           "estPayoutWei": "25212886259820667998349"
         },
         {
           "operator": "0x2179a7a0be3eb10c45a9aeec11f260e2bc4b1a7c",
+          "ens": "bezpok.eth",
           "ticketBlocks": "53931",
           "sharePct": 4,
           "estPayoutWei": "24010809784012086062739"
         },
         {
           "operator": "0x2deb5ff7d2cdfa92a73f0b0b534e51875c81a5ed",
+          "ens": null,
           "ticketBlocks": "53443",
           "sharePct": 3.96,
           "estPayoutWei": "23793545591347423846229"
         },
         {
           "operator": "0x34aa3f359a9d614239015126635ce7732c18fdf3",
+          "ens": "austingriffith.eth",
           "ticketBlocks": "505828",
           "sharePct": 37.53,
           "estPayoutWei": "225201459113075327157727"
         },
         {
           "operator": "0x8dcb4a4e9621c492a82c0e3e105ab69124c401a2",
+          "ens": null,
           "ticketBlocks": "31544",
           "sharePct": 2.34,
           "estPayoutWei": "14043814945520706880329"
         },
         {
           "operator": "0xcb6ce8c3a16def797167e8a2aed7998a065f2513",
+          "ens": null,
           "ticketBlocks": "24342",
           "sharePct": 1.8,
           "estPayoutWei": "10837387249678704250601"
         },
         {
           "operator": "0x97843608a00e2bbc75ab0c1911387e002565dede",
+          "ens": "buidlguidl.eth",
           "ticketBlocks": "203105",
           "sharePct": 15.07,
           "estPayoutWei": "90425089858926679271155"
         },
         {
           "operator": "0xbb66ff0728ec074f3e374947246e8daa7e6aa587",
+          "ens": null,
           "ticketBlocks": "134308",
           "sharePct": 9.96,
           "estPayoutWei": "59795736041814452817756"
@@ -157,120 +190,140 @@
       "operators": [
         {
           "operator": "0x155583c5a945b410f66f3ab0b9e334606c6e8390",
+          "ens": null,
           "ticketBlocks": "97853",
           "sharePct": 2.55,
           "estPayoutWei": "15348812039415774832432"
         },
         {
           "operator": "0xe603c63ee0e97da5a833b7498c366e88b9a5ebfe",
+          "ens": null,
           "ticketBlocks": "665",
           "sharePct": 0.01,
           "estPayoutWei": "104309116799806753636"
         },
         {
           "operator": "0x3794ab82cd6512d289b0d8d6787ef209cdbfddbb",
+          "ens": null,
           "ticketBlocks": "63631",
           "sharePct": 1.66,
           "estPayoutWei": "9980892347501509083650"
         },
         {
           "operator": "0x34aa3f359a9d614239015126635ce7732c18fdf3",
+          "ens": "austingriffith.eth",
           "ticketBlocks": "602586",
           "sharePct": 15.75,
           "estPayoutWei": "94519117978839627739323"
         },
         {
           "operator": "0x59461947ec279863138fae477c35b0c551a5c3a6",
+          "ens": null,
           "ticketBlocks": "51892",
           "sharePct": 1.35,
           "estPayoutWei": "8139561938309130916830"
         },
         {
           "operator": "0xa9499065732d4319f732f8f60f8e2632904b5dc9",
+          "ens": null,
           "ticketBlocks": "496688",
           "sharePct": 12.98,
           "estPayoutWei": "77908400909868296015156"
         },
         {
           "operator": "0x81a196af5cb4b16743e70c6122871b60511b2911",
+          "ens": null,
           "ticketBlocks": "457560",
           "sharePct": 11.96,
           "estPayoutWei": "71770946590856508562105"
         },
         {
           "operator": "0x97843608a00e2bbc75ab0c1911387e002565dede",
+          "ens": "buidlguidl.eth",
           "ticketBlocks": "434453",
           "sharePct": 11.35,
           "estPayoutWei": "68146479279739012838387"
         },
         {
           "operator": "0xcb6ce8c3a16def797167e8a2aed7998a065f2513",
+          "ens": null,
           "ticketBlocks": "382623",
           "sharePct": 10,
           "estPayoutWei": "60016642401943548115129"
         },
         {
           "operator": "0xc6e48712e56f6e9548c54a0a983ebe992efa26bd",
+          "ens": null,
           "ticketBlocks": "3185",
           "sharePct": 0.08,
           "estPayoutWei": "499585769935916556889"
         },
         {
           "operator": "0x0b304924faa64b0f040dca67bc5175dd6078db52",
+          "ens": null,
           "ticketBlocks": "301293",
           "sharePct": 7.87,
           "estPayoutWei": "47259558989419813869661"
         },
         {
           "operator": "0x8dcb4a4e9621c492a82c0e3e105ab69124c401a2",
+          "ens": null,
           "ticketBlocks": "200862",
           "sharePct": 5.25,
           "estPayoutWei": "31506372659613209246441"
         },
         {
           "operator": "0xbb66ff0728ec074f3e374947246e8daa7e6aa587",
+          "ens": null,
           "ticketBlocks": "200862",
           "sharePct": 5.25,
           "estPayoutWei": "31506372659613209246441"
         },
         {
           "operator": "0x2179a7a0be3eb10c45a9aeec11f260e2bc4b1a7c",
+          "ens": "bezpok.eth",
           "ticketBlocks": "18397",
           "sharePct": 0.48,
           "estPayoutWei": "2885676423708338115257"
         },
         {
           "operator": "0x8577fbe7bb7a2c1ca7616d50e9ade57ebebd8e79",
+          "ens": "tomteilors.eth",
           "ticketBlocks": "10464",
           "sharePct": 0.27,
           "estPayoutWei": "1641339245403274992555"
         },
         {
           "operator": "0x1df428833f2c9fb1ef098754e5d710432450d706",
+          "ens": "0xjoshua.eth",
           "ticketBlocks": "100431",
           "sharePct": 2.62,
           "estPayoutWei": "15753186329806604623220"
         },
         {
           "operator": "0x2deb5ff7d2cdfa92a73f0b0b534e51875c81a5ed",
+          "ens": null,
           "ticketBlocks": "100431",
           "sharePct": 2.62,
           "estPayoutWei": "15753186329806604623220"
         },
         {
           "operator": "0x8d138c01765483cb79d787ce5933f609cbfdabcf",
+          "ens": "adrianleb.eth",
           "ticketBlocks": "100431",
           "sharePct": 2.62,
           "estPayoutWei": "15753186329806604623220"
         },
         {
           "operator": "0x291bd021638b9aef86c6d47e29cda1cf3804bafb",
+          "ens": null,
           "ticketBlocks": "100431",
           "sharePct": 2.62,
           "estPayoutWei": "15753186329806604623220"
         },
         {
           "operator": "0x8b405dbf2f30844b608b08dad20447a6955a6c6e",
+          "ens": null,
           "ticketBlocks": "100431",
           "sharePct": 2.62,
           "estPayoutWei": "15753186329806604623220"
@@ -291,180 +344,210 @@
       "operators": [
         {
           "operator": "0x5fdcb78ca9a1164c13428e5fc9582c8c48dab69f",
+          "ens": null,
           "ticketBlocks": "9982",
           "sharePct": 0.1,
           "estPayoutWei": "1304570855392202242026"
         },
         {
           "operator": "0x38b672ca1e767ad08bdc357f6d815d670831c26f",
+          "ens": null,
           "ticketBlocks": "90240",
           "sharePct": 0.98,
           "estPayoutWei": "11793676015887831128081"
         },
         {
           "operator": "0xa9499065732d4319f732f8f60f8e2632904b5dc9",
+          "ens": null,
           "ticketBlocks": "802072",
           "sharePct": 8.73,
           "estPayoutWei": "104824659900434225272194"
         },
         {
           "operator": "0x97843608a00e2bbc75ab0c1911387e002565dede",
+          "ens": "buidlguidl.eth",
           "ticketBlocks": "621912",
           "sharePct": 6.77,
           "estPayoutWei": "81279129414814193622867"
         },
         {
           "operator": "0x0b304924faa64b0f040dca67bc5175dd6078db52",
+          "ens": null,
           "ticketBlocks": "610022",
           "sharePct": 6.64,
           "estPayoutWei": "79725197590469043887574"
         },
         {
           "operator": "0x34aa3f359a9d614239015126635ce7732c18fdf3",
+          "ens": "austingriffith.eth",
           "ticketBlocks": "601554",
           "sharePct": 6.55,
           "estPayoutWei": "78618494925325668954145"
         },
         {
           "operator": "0x88ed57a03e98931a81dba7a9bc2dc95b48929e45",
+          "ens": null,
           "ticketBlocks": "53726",
           "sharePct": 0.58,
           "estPayoutWei": "7021576214866906196667"
         },
         {
           "operator": "0x81a196af5cb4b16743e70c6122871b60511b2911",
+          "ens": null,
           "ticketBlocks": "502498",
           "sharePct": 5.47,
           "estPayoutWei": "65672635312850214607699"
         },
         {
           "operator": "0xc6e48712e56f6e9548c54a0a983ebe992efa26bd",
+          "ens": null,
           "ticketBlocks": "501295",
           "sharePct": 5.45,
           "estPayoutWei": "65515412437771390795121"
         },
         {
           "operator": "0x155583c5a945b410f66f3ab0b9e334606c6e8390",
+          "ens": null,
           "ticketBlocks": "501295",
           "sharePct": 5.45,
           "estPayoutWei": "65515412437771390795121"
         },
         {
           "operator": "0xcb6ce8c3a16def797167e8a2aed7998a065f2513",
+          "ens": null,
           "ticketBlocks": "501295",
           "sharePct": 5.45,
           "estPayoutWei": "65515412437771390795121"
         },
         {
           "operator": "0xbb10585c2cf0e3f7b1346e8f9acb5914391f8ab6",
+          "ens": null,
           "ticketBlocks": "499282",
           "sharePct": 5.43,
           "estPayoutWei": "65252328773986127008986"
         },
         {
           "operator": "0xec04f8d2531371eec429047b50ae113816f3dc5e",
+          "ens": null,
           "ticketBlocks": "480980",
           "sharePct": 5.23,
           "estPayoutWei": "62860397718547528989192"
         },
         {
           "operator": "0xfc662a94f4d6e7be443b1b7381bf949865af2685",
+          "ens": null,
           "ticketBlocks": "475705",
           "sharePct": 5.18,
           "estPayoutWei": "62170995668638305704611"
         },
         {
           "operator": "0x291bd021638b9aef86c6d47e29cda1cf3804bafb",
+          "ens": null,
           "ticketBlocks": "416499",
           "sharePct": 4.53,
           "estPayoutWei": "54433225475856225365856"
         },
         {
           "operator": "0xe1679c04371a0341b08347ede683d0377997c468",
+          "ens": null,
           "ticketBlocks": "34989",
           "sharePct": 0.38,
           "estPayoutWei": "4572793995122997820705"
         },
         {
           "operator": "0x8577fbe7bb7a2c1ca7616d50e9ade57ebebd8e79",
+          "ens": "tomteilors.eth",
           "ticketBlocks": "341305",
           "sharePct": 3.71,
           "estPayoutWei": "44605946283273450833000"
         },
         {
           "operator": "0xf15afcdfdcf957daa319712e08a6ea70566c65f6",
+          "ens": null,
           "ticketBlocks": "276650",
           "sharePct": 3.01,
           "estPayoutWei": "36156033574860023067196"
         },
         {
           "operator": "0x8980e4ad57cd1abf560c040f2137faeea2b01fe4",
+          "ens": null,
           "ticketBlocks": "222035",
           "sharePct": 2.41,
           "estPayoutWei": "29018271877079505590909"
         },
         {
           "operator": "0x762ae5163219c238c1bfc927be521f4f163666b4",
+          "ens": null,
           "ticketBlocks": "220160",
           "sharePct": 2.39,
           "estPayoutWei": "28773223755073857503972"
         },
         {
           "operator": "0x24f93616525818f07440364df68d499d61056bab",
+          "ens": null,
           "ticketBlocks": "217765",
           "sharePct": 2.37,
           "estPayoutWei": "28460215620565309680925"
         },
         {
           "operator": "0x8dcb4a4e9621c492a82c0e3e105ab69124c401a2",
+          "ens": null,
           "ticketBlocks": "200518",
           "sharePct": 2.18,
           "estPayoutWei": "26206164975108556318048"
         },
         {
           "operator": "0xbb66ff0728ec074f3e374947246e8daa7e6aa587",
+          "ens": null,
           "ticketBlocks": "200518",
           "sharePct": 2.18,
           "estPayoutWei": "26206164975108556318048"
         },
         {
           "operator": "0x8b405dbf2f30844b608b08dad20447a6955a6c6e",
+          "ens": null,
           "ticketBlocks": "168758",
           "sharePct": 1.83,
           "estPayoutWei": "22055376519162218589459"
         },
         {
           "operator": "0x2deb5ff7d2cdfa92a73f0b0b534e51875c81a5ed",
+          "ens": null,
           "ticketBlocks": "168413",
           "sharePct": 1.83,
           "estPayoutWei": "22010287664713179341463"
         },
         {
           "operator": "0x6f9bb7e454f5b3eb2310343f0e99269dc2bb8a1d",
+          "ens": "cp0x.eth",
           "ticketBlocks": "151521",
           "sharePct": 1.65,
           "estPayoutWei": "19802632797022828683046"
         },
         {
           "operator": "0xfe952cb6f4b8f4acd5337153da5c7c93dc3e44e1",
+          "ens": "zakgriffith.eth",
           "ticketBlocks": "10104",
           "sharePct": 0.11,
           "estPayoutWei": "1320515319864036410883"
         },
         {
           "operator": "0x3794ab82cd6512d289b0d8d6787ef209cdbfddbb",
+          "ens": null,
           "ticketBlocks": "100259",
           "sharePct": 1.09,
           "estPayoutWei": "13103082487554278159024"
         },
         {
           "operator": "0x1df428833f2c9fb1ef098754e5d710432450d706",
+          "ens": "0xjoshua.eth",
           "ticketBlocks": "100259",
           "sharePct": 1.09,
           "estPayoutWei": "13103082487554278159024"
         },
         {
           "operator": "0x8d138c01765483cb79d787ce5933f609cbfdabcf",
+          "ens": "adrianleb.eth",
           "ticketBlocks": "100259",
           "sharePct": 1.09,
           "estPayoutWei": "13103082487554278159024"
@@ -485,204 +568,238 @@
       "operators": [
         {
           "operator": "0xec04f8d2531371eec429047b50ae113816f3dc5e",
+          "ens": null,
           "ticketBlocks": "803560",
           "sharePct": 6.3,
           "estPayoutWei": "113542595743338005112214"
         },
         {
           "operator": "0xa9499065732d4319f732f8f60f8e2632904b5dc9",
+          "ens": null,
           "ticketBlocks": "803560",
           "sharePct": 6.3,
           "estPayoutWei": "113542595743338005112214"
         },
         {
           "operator": "0x0b304924faa64b0f040dca67bc5175dd6078db52",
+          "ens": null,
           "ticketBlocks": "803560",
           "sharePct": 6.3,
           "estPayoutWei": "113542595743338005112214"
         },
         {
           "operator": "0x407c88f8d1a951da8b7889a140f6181ed88ebf8c",
+          "ens": null,
           "ticketBlocks": "80079",
           "sharePct": 0.62,
           "estPayoutWei": "11315119623339593946165"
         },
         {
           "operator": "0x97843608a00e2bbc75ab0c1911387e002565dede",
+          "ens": "buidlguidl.eth",
           "ticketBlocks": "703115",
           "sharePct": 5.51,
           "estPayoutWei": "99349771275420754473187"
         },
         {
           "operator": "0xb3ba3519ed23acbcd84344e311eeaa7c035a9144",
+          "ens": null,
           "ticketBlocks": "63246",
           "sharePct": 0.49,
           "estPayoutWei": "8936625778265662142624"
         },
         {
           "operator": "0xfc662a94f4d6e7be443b1b7381bf949865af2685",
+          "ens": null,
           "ticketBlocks": "602670",
           "sharePct": 4.73,
           "estPayoutWei": "85156946807503503834160"
         },
         {
           "operator": "0x34aa3f359a9d614239015126635ce7732c18fdf3",
+          "ens": "austingriffith.eth",
           "ticketBlocks": "602670",
           "sharePct": 4.73,
           "estPayoutWei": "85156946807503503834160"
         },
         {
           "operator": "0x325409632bccffac706d378a2eca57cafa21ab11",
+          "ens": null,
           "ticketBlocks": "593730",
           "sharePct": 4.66,
           "estPayoutWei": "83893729616571349712871"
         },
         {
           "operator": "0x24f93616525818f07440364df68d499d61056bab",
+          "ens": null,
           "ticketBlocks": "502225",
           "sharePct": 3.94,
           "estPayoutWei": "70964122339586253195134"
         },
         {
           "operator": "0x762ae5163219c238c1bfc927be521f4f163666b4",
+          "ens": null,
           "ticketBlocks": "502225",
           "sharePct": 3.94,
           "estPayoutWei": "70964122339586253195134"
         },
         {
           "operator": "0x8980e4ad57cd1abf560c040f2137faeea2b01fe4",
+          "ens": null,
           "ticketBlocks": "502225",
           "sharePct": 3.94,
           "estPayoutWei": "70964122339586253195134"
         },
         {
           "operator": "0xf15afcdfdcf957daa319712e08a6ea70566c65f6",
+          "ens": null,
           "ticketBlocks": "502225",
           "sharePct": 3.94,
           "estPayoutWei": "70964122339586253195134"
         },
         {
           "operator": "0xbb10585c2cf0e3f7b1346e8f9acb5914391f8ab6",
+          "ens": null,
           "ticketBlocks": "502225",
           "sharePct": 3.94,
           "estPayoutWei": "70964122339586253195134"
         },
         {
           "operator": "0xc6e48712e56f6e9548c54a0a983ebe992efa26bd",
+          "ens": null,
           "ticketBlocks": "502225",
           "sharePct": 3.94,
           "estPayoutWei": "70964122339586253195134"
         },
         {
           "operator": "0x155583c5a945b410f66f3ab0b9e334606c6e8390",
+          "ens": null,
           "ticketBlocks": "502225",
           "sharePct": 3.94,
           "estPayoutWei": "70964122339586253195134"
         },
         {
           "operator": "0x81a196af5cb4b16743e70c6122871b60511b2911",
+          "ens": null,
           "ticketBlocks": "502225",
           "sharePct": 3.94,
           "estPayoutWei": "70964122339586253195134"
         },
         {
           "operator": "0xcb6ce8c3a16def797167e8a2aed7998a065f2513",
+          "ens": null,
           "ticketBlocks": "502225",
           "sharePct": 3.94,
           "estPayoutWei": "70964122339586253195134"
         },
         {
           "operator": "0x291bd021638b9aef86c6d47e29cda1cf3804bafb",
+          "ens": null,
           "ticketBlocks": "502225",
           "sharePct": 3.94,
           "estPayoutWei": "70964122339586253195134"
         },
         {
           "operator": "0x6f9bb7e454f5b3eb2310343f0e99269dc2bb8a1d",
+          "ens": "cp0x.eth",
           "ticketBlocks": "401780",
           "sharePct": 3.15,
           "estPayoutWei": "56771297871669002556107"
         },
         {
           "operator": "0x8577fbe7bb7a2c1ca7616d50e9ade57ebebd8e79",
+          "ens": "tomteilors.eth",
           "ticketBlocks": "401780",
           "sharePct": 3.15,
           "estPayoutWei": "56771297871669002556107"
         },
         {
           "operator": "0x38b672ca1e767ad08bdc357f6d815d670831c26f",
+          "ens": null,
           "ticketBlocks": "200890",
           "sharePct": 1.57,
           "estPayoutWei": "28385648935834501278053"
         },
         {
           "operator": "0x8dcb4a4e9621c492a82c0e3e105ab69124c401a2",
+          "ens": null,
           "ticketBlocks": "200890",
           "sharePct": 1.57,
           "estPayoutWei": "28385648935834501278053"
         },
         {
           "operator": "0x2deb5ff7d2cdfa92a73f0b0b534e51875c81a5ed",
+          "ens": null,
           "ticketBlocks": "200890",
           "sharePct": 1.57,
           "estPayoutWei": "28385648935834501278053"
         },
         {
           "operator": "0xbb66ff0728ec074f3e374947246e8daa7e6aa587",
+          "ens": null,
           "ticketBlocks": "200890",
           "sharePct": 1.57,
           "estPayoutWei": "28385648935834501278053"
         },
         {
           "operator": "0x8b405dbf2f30844b608b08dad20447a6955a6c6e",
+          "ens": null,
           "ticketBlocks": "200890",
           "sharePct": 1.57,
           "estPayoutWei": "28385648935834501278053"
         },
         {
           "operator": "0x4882113c6b02c29a8b96f5ed3fa2689a34d3250d",
+          "ens": null,
           "ticketBlocks": "149337",
           "sharePct": 1.17,
           "estPayoutWei": "21101237767587818793173"
         },
         {
           "operator": "0x5fdcb78ca9a1164c13428e5fc9582c8c48dab69f",
+          "ens": null,
           "ticketBlocks": "100445",
           "sharePct": 0.78,
           "estPayoutWei": "14192824467917250639026"
         },
         {
           "operator": "0xfe952cb6f4b8f4acd5337153da5c7c93dc3e44e1",
+          "ens": "zakgriffith.eth",
           "ticketBlocks": "100445",
           "sharePct": 0.78,
           "estPayoutWei": "14192824467917250639026"
         },
         {
           "operator": "0xe1679c04371a0341b08347ede683d0377997c468",
+          "ens": null,
           "ticketBlocks": "100445",
           "sharePct": 0.78,
           "estPayoutWei": "14192824467917250639026"
         },
         {
           "operator": "0x88ed57a03e98931a81dba7a9bc2dc95b48929e45",
+          "ens": null,
           "ticketBlocks": "100445",
           "sharePct": 0.78,
           "estPayoutWei": "14192824467917250639026"
         },
         {
           "operator": "0x3794ab82cd6512d289b0d8d6787ef209cdbfddbb",
+          "ens": null,
           "ticketBlocks": "100445",
           "sharePct": 0.78,
           "estPayoutWei": "14192824467917250639026"
         },
         {
           "operator": "0x1df428833f2c9fb1ef098754e5d710432450d706",
+          "ens": "0xjoshua.eth",
           "ticketBlocks": "100445",
           "sharePct": 0.78,
           "estPayoutWei": "14192824467917250639026"
         },
         {
           "operator": "0x8d138c01765483cb79d787ce5933f609cbfdabcf",
+          "ens": "adrianleb.eth",
           "ticketBlocks": "100445",
           "sharePct": 0.78,
           "estPayoutWei": "14192824467917250639026"
@@ -697,213 +814,247 @@
       "endTs": 1793157107,
       "poolWei": "3000000000000000000000000",
       "status": "in-progress",
-      "blocksObserved": "34741",
-      "totalTicketBlocks": "4631328",
+      "blocksObserved": "35413",
+      "totalTicketBlocks": "4721376",
       "operatorCount": 34,
       "operators": [
         {
           "operator": "0x4882113c6b02c29a8b96f5ed3fa2689a34d3250d",
-          "ticketBlocks": "86747",
-          "sharePct": 1.87,
-          "estPayoutWei": "56191442281781812905499"
+          "ens": null,
+          "ticketBlocks": "88763",
+          "sharePct": 1.88,
+          "estPayoutWei": "56400718773510095362030"
         },
         {
           "operator": "0x8dcb4a4e9621c492a82c0e3e105ab69124c401a2",
-          "ticketBlocks": "69482",
+          "ens": null,
+          "ticketBlocks": "70826",
           "sharePct": 1.5,
-          "estPayoutWei": "45007824969425616151566"
+          "estPayoutWei": "45003405786787580569732"
         },
         {
           "operator": "0x2deb5ff7d2cdfa92a73f0b0b534e51875c81a5ed",
-          "ticketBlocks": "69482",
+          "ens": null,
+          "ticketBlocks": "70826",
           "sharePct": 1.5,
-          "estPayoutWei": "45007824969425616151566"
+          "estPayoutWei": "45003405786787580569732"
         },
         {
           "operator": "0xbb66ff0728ec074f3e374947246e8daa7e6aa587",
-          "ticketBlocks": "69482",
+          "ens": null,
+          "ticketBlocks": "70826",
           "sharePct": 1.5,
-          "estPayoutWei": "45007824969425616151566"
+          "estPayoutWei": "45003405786787580569732"
         },
         {
           "operator": "0x8b405dbf2f30844b608b08dad20447a6955a6c6e",
-          "ticketBlocks": "69482",
+          "ens": null,
+          "ticketBlocks": "70826",
           "sharePct": 1.5,
-          "estPayoutWei": "45007824969425616151566"
+          "estPayoutWei": "45003405786787580569732"
         },
         {
           "operator": "0xec04f8d2531371eec429047b50ae113816f3dc5e",
+          "ens": null,
           "ticketBlocks": "38805",
-          "sharePct": 0.83,
-          "estPayoutWei": "25136418755052546483427"
+          "sharePct": 0.82,
+          "estPayoutWei": "24657006770907464264655"
         },
         {
           "operator": "0x5fdcb78ca9a1164c13428e5fc9582c8c48dab69f",
-          "ticketBlocks": "34741",
+          "ens": null,
+          "ticketBlocks": "35413",
           "sharePct": 0.75,
-          "estPayoutWei": "22503912484712808075783"
+          "estPayoutWei": "22501702893393790284866"
         },
         {
           "operator": "0xfe952cb6f4b8f4acd5337153da5c7c93dc3e44e1",
-          "ticketBlocks": "34741",
+          "ens": "zakgriffith.eth",
+          "ticketBlocks": "35413",
           "sharePct": 0.75,
-          "estPayoutWei": "22503912484712808075783"
+          "estPayoutWei": "22501702893393790284866"
         },
         {
           "operator": "0xe1679c04371a0341b08347ede683d0377997c468",
-          "ticketBlocks": "34741",
+          "ens": null,
+          "ticketBlocks": "35413",
           "sharePct": 0.75,
-          "estPayoutWei": "22503912484712808075783"
+          "estPayoutWei": "22501702893393790284866"
         },
         {
           "operator": "0x88ed57a03e98931a81dba7a9bc2dc95b48929e45",
-          "ticketBlocks": "34741",
+          "ens": null,
+          "ticketBlocks": "35413",
           "sharePct": 0.75,
-          "estPayoutWei": "22503912484712808075783"
+          "estPayoutWei": "22501702893393790284866"
         },
         {
           "operator": "0x3794ab82cd6512d289b0d8d6787ef209cdbfddbb",
-          "ticketBlocks": "34741",
+          "ens": null,
+          "ticketBlocks": "35413",
           "sharePct": 0.75,
-          "estPayoutWei": "22503912484712808075783"
+          "estPayoutWei": "22501702893393790284866"
         },
         {
           "operator": "0x1df428833f2c9fb1ef098754e5d710432450d706",
-          "ticketBlocks": "34741",
+          "ens": "0xjoshua.eth",
+          "ticketBlocks": "35413",
           "sharePct": 0.75,
-          "estPayoutWei": "22503912484712808075783"
+          "estPayoutWei": "22501702893393790284866"
         },
         {
           "operator": "0x8d138c01765483cb79d787ce5933f609cbfdabcf",
-          "ticketBlocks": "34741",
+          "ens": "adrianleb.eth",
+          "ticketBlocks": "35413",
           "sharePct": 0.75,
-          "estPayoutWei": "22503912484712808075783"
+          "estPayoutWei": "22501702893393790284866"
         },
         {
           "operator": "0xa9499065732d4319f732f8f60f8e2632904b5dc9",
-          "ticketBlocks": "277928",
+          "ens": null,
+          "ticketBlocks": "283304",
           "sharePct": 6,
-          "estPayoutWei": "180031299877702464606264"
+          "estPayoutWei": "180013623147150322278928"
         },
         {
           "operator": "0x0b304924faa64b0f040dca67bc5175dd6078db52",
-          "ticketBlocks": "277928",
+          "ens": null,
+          "ticketBlocks": "283304",
           "sharePct": 6,
-          "estPayoutWei": "180031299877702464606264"
+          "estPayoutWei": "180013623147150322278928"
         },
         {
           "operator": "0x325409632bccffac706d378a2eca57cafa21ab11",
-          "ticketBlocks": "243187",
+          "ens": null,
+          "ticketBlocks": "247891",
           "sharePct": 5.25,
-          "estPayoutWei": "157527387392989656530481"
+          "estPayoutWei": "157511920253756531994062"
         },
         {
           "operator": "0x97843608a00e2bbc75ab0c1911387e002565dede",
-          "ticketBlocks": "243187",
+          "ens": "buidlguidl.eth",
+          "ticketBlocks": "247891",
           "sharePct": 5.25,
-          "estPayoutWei": "157527387392989656530481"
+          "estPayoutWei": "157511920253756531994062"
         },
         {
           "operator": "0xc6e48712e56f6e9548c54a0a983ebe992efa26bd",
-          "ticketBlocks": "240185",
-          "sharePct": 5.18,
-          "estPayoutWei": "155582804759239682440975"
+          "ens": null,
+          "ticketBlocks": "245561",
+          "sharePct": 5.2,
+          "estPayoutWei": "156031419653931396270917"
         },
         {
           "operator": "0xfc662a94f4d6e7be443b1b7381bf949865af2685",
-          "ticketBlocks": "208446",
+          "ens": null,
+          "ticketBlocks": "212478",
           "sharePct": 4.5,
-          "estPayoutWei": "135023474908276848454698"
+          "estPayoutWei": "135010217360362741709196"
         },
         {
           "operator": "0x34aa3f359a9d614239015126635ce7732c18fdf3",
-          "ticketBlocks": "208446",
+          "ens": "austingriffith.eth",
+          "ticketBlocks": "212478",
           "sharePct": 4.5,
-          "estPayoutWei": "135023474908276848454698"
+          "estPayoutWei": "135010217360362741709196"
         },
         {
           "operator": "0x407c88f8d1a951da8b7889a140f6181ed88ebf8c",
-          "ticketBlocks": "173705",
+          "ens": null,
+          "ticketBlocks": "177065",
           "sharePct": 3.75,
-          "estPayoutWei": "112519562423564040378915"
+          "estPayoutWei": "112508514466968951424330"
         },
         {
           "operator": "0x24f93616525818f07440364df68d499d61056bab",
-          "ticketBlocks": "173705",
+          "ens": null,
+          "ticketBlocks": "177065",
           "sharePct": 3.75,
-          "estPayoutWei": "112519562423564040378915"
+          "estPayoutWei": "112508514466968951424330"
         },
         {
           "operator": "0x762ae5163219c238c1bfc927be521f4f163666b4",
-          "ticketBlocks": "173705",
+          "ens": null,
+          "ticketBlocks": "177065",
           "sharePct": 3.75,
-          "estPayoutWei": "112519562423564040378915"
+          "estPayoutWei": "112508514466968951424330"
         },
         {
           "operator": "0x8980e4ad57cd1abf560c040f2137faeea2b01fe4",
-          "ticketBlocks": "173705",
+          "ens": null,
+          "ticketBlocks": "177065",
           "sharePct": 3.75,
-          "estPayoutWei": "112519562423564040378915"
+          "estPayoutWei": "112508514466968951424330"
         },
         {
           "operator": "0xf15afcdfdcf957daa319712e08a6ea70566c65f6",
-          "ticketBlocks": "173705",
+          "ens": null,
+          "ticketBlocks": "177065",
           "sharePct": 3.75,
-          "estPayoutWei": "112519562423564040378915"
+          "estPayoutWei": "112508514466968951424330"
         },
         {
           "operator": "0xbb10585c2cf0e3f7b1346e8f9acb5914391f8ab6",
-          "ticketBlocks": "173705",
+          "ens": null,
+          "ticketBlocks": "177065",
           "sharePct": 3.75,
-          "estPayoutWei": "112519562423564040378915"
+          "estPayoutWei": "112508514466968951424330"
         },
         {
           "operator": "0x155583c5a945b410f66f3ab0b9e334606c6e8390",
-          "ticketBlocks": "173705",
+          "ens": null,
+          "ticketBlocks": "177065",
           "sharePct": 3.75,
-          "estPayoutWei": "112519562423564040378915"
+          "estPayoutWei": "112508514466968951424330"
         },
         {
           "operator": "0x81a196af5cb4b16743e70c6122871b60511b2911",
-          "ticketBlocks": "173705",
+          "ens": null,
+          "ticketBlocks": "177065",
           "sharePct": 3.75,
-          "estPayoutWei": "112519562423564040378915"
+          "estPayoutWei": "112508514466968951424330"
         },
         {
           "operator": "0xcb6ce8c3a16def797167e8a2aed7998a065f2513",
-          "ticketBlocks": "173705",
+          "ens": null,
+          "ticketBlocks": "177065",
           "sharePct": 3.75,
-          "estPayoutWei": "112519562423564040378915"
+          "estPayoutWei": "112508514466968951424330"
         },
         {
           "operator": "0x291bd021638b9aef86c6d47e29cda1cf3804bafb",
-          "ticketBlocks": "173705",
+          "ens": null,
+          "ticketBlocks": "177065",
           "sharePct": 3.75,
-          "estPayoutWei": "112519562423564040378915"
+          "estPayoutWei": "112508514466968951424330"
         },
         {
           "operator": "0xb3ba3519ed23acbcd84344e311eeaa7c035a9144",
-          "ticketBlocks": "138964",
+          "ens": null,
+          "ticketBlocks": "141652",
           "sharePct": 3,
-          "estPayoutWei": "90015649938851232303132"
+          "estPayoutWei": "90006811573575161139464"
         },
         {
           "operator": "0x6f9bb7e454f5b3eb2310343f0e99269dc2bb8a1d",
-          "ticketBlocks": "138964",
+          "ens": "cp0x.eth",
+          "ticketBlocks": "141652",
           "sharePct": 3,
-          "estPayoutWei": "90015649938851232303132"
+          "estPayoutWei": "90006811573575161139464"
         },
         {
           "operator": "0x8577fbe7bb7a2c1ca7616d50e9ade57ebebd8e79",
-          "ticketBlocks": "138964",
+          "ens": "tomteilors.eth",
+          "ticketBlocks": "141652",
           "sharePct": 3,
-          "estPayoutWei": "90015649938851232303132"
+          "estPayoutWei": "90006811573575161139464"
         },
         {
           "operator": "0x38b672ca1e767ad08bdc357f6d815d670831c26f",
-          "ticketBlocks": "131412",
-          "sharePct": 2.83,
-          "estPayoutWei": "85123748523101797151918"
+          "ens": null,
+          "ticketBlocks": "134100",
+          "sharePct": 2.84,
+          "estPayoutWei": "85208210487790000203330"
         }
       ]
     },
@@ -925,6 +1076,7 @@
     {
       "node": "0x12c75ce176d5a58d2a72e85af158cbd8749fe1d8",
       "operator": "0x0b304924faa64b0f040dca67bc5175dd6078db52",
+      "ens": null,
       "ticketBalanceWei": "8000000000000000000000",
       "tickets": 8,
       "bondWei": "32000000000000000000000",
@@ -934,6 +1086,7 @@
     {
       "node": "0x630b9c418acb02829e34f2e0b7948b4a9c92e05f",
       "operator": "0x155583c5a945b410f66f3ab0b9e334606c6e8390",
+      "ens": null,
       "ticketBalanceWei": "5000000000000000000000",
       "tickets": 5,
       "bondWei": "32000000000000000000000",
@@ -943,6 +1096,7 @@
     {
       "node": "0x1df428833f2c9fb1ef098754e5d710432450d706",
       "operator": "0x1df428833f2c9fb1ef098754e5d710432450d706",
+      "ens": "0xjoshua.eth",
       "ticketBalanceWei": "1000000000000000000000",
       "tickets": 1,
       "bondWei": "32000000000000000000000",
@@ -952,6 +1106,7 @@
     {
       "node": "0xba7254cc6c70ae1d99aea3eca705e81635aaa988",
       "operator": "0x24f93616525818f07440364df68d499d61056bab",
+      "ens": null,
       "ticketBalanceWei": "5000000000000000000000",
       "tickets": 5,
       "bondWei": "32000000000000000000000",
@@ -961,6 +1116,7 @@
     {
       "node": "0x291bd021638b9aef86c6d47e29cda1cf3804bafb",
       "operator": "0x291bd021638b9aef86c6d47e29cda1cf3804bafb",
+      "ens": null,
       "ticketBalanceWei": "5000000000000000000000",
       "tickets": 5,
       "bondWei": "32000000000000000000000",
@@ -970,6 +1126,7 @@
     {
       "node": "0x18f98f8f44a37d4179888f286191f4f856cb4663",
       "operator": "0x2deb5ff7d2cdfa92a73f0b0b534e51875c81a5ed",
+      "ens": null,
       "ticketBalanceWei": "1000000000000000000000",
       "tickets": 1,
       "bondWei": "32000000000000000000000",
@@ -979,6 +1136,7 @@
     {
       "node": "0xa2ba6a63335cdb2789b0e636987ce12c3d44662a",
       "operator": "0x2deb5ff7d2cdfa92a73f0b0b534e51875c81a5ed",
+      "ens": null,
       "ticketBalanceWei": "1000000000000000000000",
       "tickets": 1,
       "bondWei": "32001000000000000000000",
@@ -988,6 +1146,7 @@
     {
       "node": "0x15de07b6280ae5f5d37f6d77df88c37875ef2877",
       "operator": "0x325409632bccffac706d378a2eca57cafa21ab11",
+      "ens": null,
       "ticketBalanceWei": "7000000000000000000000",
       "tickets": 7,
       "bondWei": "32000000000000000000000",
@@ -997,6 +1156,7 @@
     {
       "node": "0x980aaa907e51a4e3cc89b8ff8e37aa0d55d46597",
       "operator": "0x34aa3f359a9d614239015126635ce7732c18fdf3",
+      "ens": "austingriffith.eth",
       "ticketBalanceWei": "3000000000000000000000",
       "tickets": 3,
       "bondWei": "32000000000000000000000",
@@ -1006,6 +1166,7 @@
     {
       "node": "0xd81f88b9ae6261d684f8bfeb6a642692213dae86",
       "operator": "0x34aa3f359a9d614239015126635ce7732c18fdf3",
+      "ens": "austingriffith.eth",
       "ticketBalanceWei": "3000000000000000000000",
       "tickets": 3,
       "bondWei": "32000000000000000000000",
@@ -1015,6 +1176,7 @@
     {
       "node": "0xe603c63ee0e97da5a833b7498c366e88b9a5ebfe",
       "operator": "0x3794ab82cd6512d289b0d8d6787ef209cdbfddbb",
+      "ens": null,
       "ticketBalanceWei": "1000000000000000000000",
       "tickets": 1,
       "bondWei": "32000000000000000000000",
@@ -1024,6 +1186,7 @@
     {
       "node": "0xd698bc33a4a98a019881c6e2664f1dac62c4b3b5",
       "operator": "0x38b672ca1e767ad08bdc357f6d815d670831c26f",
+      "ens": null,
       "ticketBalanceWei": "4000000000000000000000",
       "tickets": 4,
       "bondWei": "32000000000000000000000",
@@ -1033,6 +1196,7 @@
     {
       "node": "0x516c12b6d622a62166bde3580628d6d23ae5b310",
       "operator": "0x407c88f8d1a951da8b7889a140f6181ed88ebf8c",
+      "ens": null,
       "ticketBalanceWei": "5000000000000000000000",
       "tickets": 5,
       "bondWei": "32000000000000000000000",
@@ -1042,6 +1206,7 @@
     {
       "node": "0xdb78ebab8597af977b686e540dce734e613eba88",
       "operator": "0x4882113c6b02c29a8b96f5ed3fa2689a34d3250d",
+      "ens": null,
       "ticketBalanceWei": "3000000000000000000000",
       "tickets": 3,
       "bondWei": "32000000000000000000000",
@@ -1051,6 +1216,7 @@
     {
       "node": "0x9e2558b76c7d7cf169556a1a729c2cb0324f0e61",
       "operator": "0x5fdcb78ca9a1164c13428e5fc9582c8c48dab69f",
+      "ens": null,
       "ticketBalanceWei": "1000000000000000000000",
       "tickets": 1,
       "bondWei": "32000000000000000000000",
@@ -1060,6 +1226,7 @@
     {
       "node": "0x60cd23981430e4909957ea1fb214e9a21468175a",
       "operator": "0x6f9bb7e454f5b3eb2310343f0e99269dc2bb8a1d",
+      "ens": "cp0x.eth",
       "ticketBalanceWei": "1000000000000000000000",
       "tickets": 1,
       "bondWei": "32000000000000000000000",
@@ -1069,6 +1236,7 @@
     {
       "node": "0x73f8511492fe99b1d3b230b1015e22db53daa9a1",
       "operator": "0x6f9bb7e454f5b3eb2310343f0e99269dc2bb8a1d",
+      "ens": "cp0x.eth",
       "ticketBalanceWei": "1000000000000000000000",
       "tickets": 1,
       "bondWei": "32000000000000000000000",
@@ -1078,6 +1246,7 @@
     {
       "node": "0x29a540e858500fd6ee2b68ee63769b0bb0a05cf4",
       "operator": "0x6f9bb7e454f5b3eb2310343f0e99269dc2bb8a1d",
+      "ens": "cp0x.eth",
       "ticketBalanceWei": "1000000000000000000000",
       "tickets": 1,
       "bondWei": "32000000000000000000000",
@@ -1087,6 +1256,7 @@
     {
       "node": "0x3dedb602a8997b89685803dff207566c9883fe0f",
       "operator": "0x6f9bb7e454f5b3eb2310343f0e99269dc2bb8a1d",
+      "ens": "cp0x.eth",
       "ticketBalanceWei": "1000000000000000000000",
       "tickets": 1,
       "bondWei": "32000000000000000000000",
@@ -1096,6 +1266,7 @@
     {
       "node": "0xaf062fc363c3ae910ec76676346f798792beb851",
       "operator": "0x762ae5163219c238c1bfc927be521f4f163666b4",
+      "ens": null,
       "ticketBalanceWei": "5000000000000000000000",
       "tickets": 5,
       "bondWei": "32000000000000000000000",
@@ -1105,6 +1276,7 @@
     {
       "node": "0x59461947ec279863138fae477c35b0c551a5c3a6",
       "operator": "0x81a196af5cb4b16743e70c6122871b60511b2911",
+      "ens": null,
       "ticketBalanceWei": "5000000000000000000000",
       "tickets": 5,
       "bondWei": "32000000000000000000000",
@@ -1114,6 +1286,7 @@
     {
       "node": "0x222d696d0242194457ed491b0c52abbf9250342f",
       "operator": "0x8577fbe7bb7a2c1ca7616d50e9ade57ebebd8e79",
+      "ens": "tomteilors.eth",
       "ticketBalanceWei": "4000000000000000000000",
       "tickets": 4,
       "bondWei": "32000000000000000000000",
@@ -1123,6 +1296,7 @@
     {
       "node": "0x88ed57a03e98931a81dba7a9bc2dc95b48929e45",
       "operator": "0x88ed57a03e98931a81dba7a9bc2dc95b48929e45",
+      "ens": null,
       "ticketBalanceWei": "1000000000000000000000",
       "tickets": 1,
       "bondWei": "39634000000000000000000",
@@ -1132,6 +1306,7 @@
     {
       "node": "0x1d4205bc727e4f3799b25d0feae8e45d365858b1",
       "operator": "0x8980e4ad57cd1abf560c040f2137faeea2b01fe4",
+      "ens": null,
       "ticketBalanceWei": "5000000000000000000000",
       "tickets": 5,
       "bondWei": "32000000000000000000000",
@@ -1141,6 +1316,7 @@
     {
       "node": "0xa303d8cb0ce470f772a459b4a87acb11b2978db8",
       "operator": "0x8b405dbf2f30844b608b08dad20447a6955a6c6e",
+      "ens": "ciphernode.auryn.eth",
       "ticketBalanceWei": "1000000000000000000000",
       "tickets": 1,
       "bondWei": "32000000000000000000000",
@@ -1150,6 +1326,7 @@
     {
       "node": "0xd3336047dcf4d7c7393b3bf5fa47a31478c22d47",
       "operator": "0x8b405dbf2f30844b608b08dad20447a6955a6c6e",
+      "ens": null,
       "ticketBalanceWei": "1000000000000000000000",
       "tickets": 1,
       "bondWei": "32000000000000000000000",
@@ -1159,6 +1336,7 @@
     {
       "node": "0x0a3e22cb9778a10b188ec2bf149d628ab91a76a9",
       "operator": "0x8d138c01765483cb79d787ce5933f609cbfdabcf",
+      "ens": "adrianleb.eth",
       "ticketBalanceWei": "1000000000000000000000",
       "tickets": 1,
       "bondWei": "32000000000000000000000",
@@ -1168,6 +1346,7 @@
     {
       "node": "0xb6bb517ca0bd9a8b0ed2817e604b327d31626190",
       "operator": "0x8dcb4a4e9621c492a82c0e3e105ab69124c401a2",
+      "ens": null,
       "ticketBalanceWei": "2000000000000000000000",
       "tickets": 2,
       "bondWei": "32000000000000000000000",
@@ -1177,6 +1356,7 @@
     {
       "node": "0x252a6c33c87c0b439671b983c3f730d2c46a5f1d",
       "operator": "0x97843608a00e2bbc75ab0c1911387e002565dede",
+      "ens": "buidlguidl.eth",
       "ticketBalanceWei": "1000000000000000000000",
       "tickets": 1,
       "bondWei": "32000000000000000000000",
@@ -1186,6 +1366,7 @@
     {
       "node": "0xcdc8b4379ddf736f8e34b0a65585e07de7060a84",
       "operator": "0x97843608a00e2bbc75ab0c1911387e002565dede",
+      "ens": "buidlguidl.eth",
       "ticketBalanceWei": "2000000000000000000000",
       "tickets": 2,
       "bondWei": "32000000000000000000000",
@@ -1195,6 +1376,7 @@
     {
       "node": "0x18ddbf8aa6f72fc4d9e1911527d0ce1e9f3597d8",
       "operator": "0x97843608a00e2bbc75ab0c1911387e002565dede",
+      "ens": "buidlguidl.eth",
       "ticketBalanceWei": "2000000000000000000000",
       "tickets": 2,
       "bondWei": "32000000000000000000000",
@@ -1204,6 +1386,7 @@
     {
       "node": "0xc798b5f60150fbb2db9b061817831df62d2b269c",
       "operator": "0x97843608a00e2bbc75ab0c1911387e002565dede",
+      "ens": "buidlguidl.eth",
       "ticketBalanceWei": "1000000000000000000000",
       "tickets": 1,
       "bondWei": "32000000000000000000000",
@@ -1213,6 +1396,7 @@
     {
       "node": "0xdbed503093a01ea08f21144114542e53594536d6",
       "operator": "0x97843608a00e2bbc75ab0c1911387e002565dede",
+      "ens": "buidlguidl.eth",
       "ticketBalanceWei": "1000000000000000000000",
       "tickets": 1,
       "bondWei": "32000000000000000000000",
@@ -1222,6 +1406,7 @@
     {
       "node": "0xbb3f49ded0ede92ba3c9247a93e925770ac68671",
       "operator": "0xa9499065732d4319f732f8f60f8e2632904b5dc9",
+      "ens": null,
       "ticketBalanceWei": "8000000000000000000000",
       "tickets": 8,
       "bondWei": "44444000000000000000000",
@@ -1231,6 +1416,7 @@
     {
       "node": "0xd2b46cec7b4d8046ef2d7bcb32af3220ef7bc1dd",
       "operator": "0xa9499065732d4319f732f8f60f8e2632904b5dc9",
+      "ens": null,
       "ticketBalanceWei": "5000000000000000000000",
       "tickets": 5,
       "bondWei": "32000000000000000000000",
@@ -1240,6 +1426,7 @@
     {
       "node": "0x86ab0b3c4a36cab3037d750c850d660ce710e2a1",
       "operator": "0xb3ba3519ed23acbcd84344e311eeaa7c035a9144",
+      "ens": null,
       "ticketBalanceWei": "4000000000000000000000",
       "tickets": 4,
       "bondWei": "32000000000000000000000",
@@ -1249,6 +1436,7 @@
     {
       "node": "0x9ec16384b956d7b2a71284711fd32d156e6b33c6",
       "operator": "0xbb10585c2cf0e3f7b1346e8f9acb5914391f8ab6",
+      "ens": null,
       "ticketBalanceWei": "5000000000000000000000",
       "tickets": 5,
       "bondWei": "32000000000000000000000",
@@ -1258,6 +1446,7 @@
     {
       "node": "0x3b62d921efdbc295b017fab9ba8a521457f037d3",
       "operator": "0xbb66ff0728ec074f3e374947246e8daa7e6aa587",
+      "ens": null,
       "ticketBalanceWei": "2000000000000000000000",
       "tickets": 2,
       "bondWei": "32000000000000000000000",
@@ -1267,6 +1456,7 @@
     {
       "node": "0xc6e48712e56f6e9548c54a0a983ebe992efa26bd",
       "operator": "0xc6e48712e56f6e9548c54a0a983ebe992efa26bd",
+      "ens": null,
       "ticketBalanceWei": "8000000000000000000000",
       "tickets": 8,
       "bondWei": "32000000000000000000000",
@@ -1276,6 +1466,7 @@
     {
       "node": "0xcb6ce8c3a16def797167e8a2aed7998a065f2513",
       "operator": "0xcb6ce8c3a16def797167e8a2aed7998a065f2513",
+      "ens": null,
       "ticketBalanceWei": "5000000000000000000000",
       "tickets": 5,
       "bondWei": "32000000000000000000000",
@@ -1285,6 +1476,7 @@
     {
       "node": "0xd333232f08d6a8a4f7cee8327476dbedddf20554",
       "operator": "0xe1679c04371a0341b08347ede683d0377997c468",
+      "ens": null,
       "ticketBalanceWei": "1000000000000000000000",
       "tickets": 1,
       "bondWei": "32000000000000000000000",
@@ -1294,6 +1486,7 @@
     {
       "node": "0x5fb0854ab8fb2810b80d3de276b3107a9e5281b1",
       "operator": "0xf15afcdfdcf957daa319712e08a6ea70566c65f6",
+      "ens": null,
       "ticketBalanceWei": "5000000000000000000000",
       "tickets": 5,
       "bondWei": "32000000000000000000000",
@@ -1303,6 +1496,7 @@
     {
       "node": "0x1fd2b3d4a9f4aeb62877cab9df70a5a6e976b118",
       "operator": "0xfc662a94f4d6e7be443b1b7381bf949865af2685",
+      "ens": null,
       "ticketBalanceWei": "5000000000000000000000",
       "tickets": 5,
       "bondWei": "32000000000000000000000",
@@ -1312,6 +1506,7 @@
     {
       "node": "0x856f8e59ded8386c57f48a55b007f21f89724cfc",
       "operator": "0xfc662a94f4d6e7be443b1b7381bf949865af2685",
+      "ens": null,
       "ticketBalanceWei": "1000000000000000000000",
       "tickets": 1,
       "bondWei": "32000000000000000000000",
@@ -1321,6 +1516,7 @@
     {
       "node": "0xb8d9bf1b6c283d29dc3dc5711c9036f6896a963a",
       "operator": "0xfe952cb6f4b8f4acd5337153da5c7c93dc3e44e1",
+      "ens": "zakgriffith.eth",
       "ticketBalanceWei": "1000000000000000000000",
       "tickets": 1,
       "bondWei": "32000000000000000000000",

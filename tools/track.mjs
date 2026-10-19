@@ -20,7 +20,7 @@
  * Zero dependencies (Node >= 18: global fetch). Reads RPC_URL from env.
  */
 
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
@@ -37,6 +37,11 @@ const ADDR = {
   bondingRegistry: '0x0ec90465095C21830BEcED07e032809A2Bd2915F',
   slashingManager: '0x753109Ee36Dc65cC178875AddA30C6433e5bEEe4',
   ticketToken: '0xC0B5b49a3949eC4B520eF21BaCFE16e3695F3B5D',
+  // Settlement-side (IPP-001 §3: payouts are VE-locked FOLD via createLockFor)
+  foldToken: '0xE172e9B6cfBeeB5593bDcE3f077356FDb33af904',
+  voteEscrow: '0x71360F335e4Ec9c010e29bA7171bc62c9B4c1F12',
+  foundationSafe: '0x8B43b2852fc5031D01DDfCDF702973D93A2FF593', // v1.4.1 (on-chain VERSION())
+  multiSend: '0x38869bf66a61cF6bDB996A6aE40D5853Fd43B526', // v1.4.1 deployment
 };
 const DEPLOY = {
   // Earliest contract whose events can affect accrual (BondingRegistry).
@@ -74,6 +79,9 @@ const TOPIC = {
 const LOG_CHUNK = 2000n; // blocks per eth_getLogs query
 
 // ------------------------------------------------------------------ rpc ---
+import { resolveNames } from './ens.mjs';
+import { buildEpochPayload } from './safe.mjs';
+
 async function rpc(method, params, attempt = 0) {
   try {
     const res = await fetch(RPC, {
@@ -388,6 +396,19 @@ async function main() {
     }
   }
 
+  // ---- ENS reverse resolution (forward-confirmed)
+  const addrs = new Set();
+  for (let e = 0; e < PROGRAM.epochs; e++) for (const op of epochTB[e].keys()) addrs.add(op);
+  for (const [a, s] of Object.entries(st)) {
+    if (s.registered) addrs.add(a);
+    if (s.owner) addrs.add(s.owner);
+  }
+  console.log(`ENS: reverse-resolving ${addrs.size} addresses`);
+  const ensRaw = await resolveNames(rpc, [...addrs].sort());
+  const ens = {};
+  for (const [a, n] of Object.entries(ensRaw)) if (n) ens[a] = n;
+  console.log(`ENS: ${Object.keys(ens).length} resolved`);
+
   // ---- assemble state.json
   const now = new Date();
   const epochs = [];
@@ -410,6 +431,7 @@ async function main() {
     const operators = [...tb.entries()]
       .map(([op, tblocks]) => ({
         operator: op,
+        ens: ens[op] ?? null,
         ticketBlocks: tblocks.toString(),
         sharePct: total > 0n ? Number((tblocks * 10000n) / total) / 100 : 0,
         estPayoutWei: (total > 0n ? (epochPool[e] * tblocks) / total : 0n).toString(),
@@ -438,6 +460,7 @@ async function main() {
     .map(([a, s]) => ({
       node: a,
       operator: s.owner ?? a,
+      ens: ens[s.owner ?? a] ?? ens[a] ?? null,
       ticketBalanceWei: s.tickets.toString(),
       tickets: cfgNow.ticketPrice === 0n ? 0 : Number(s.tickets / cfgNow.ticketPrice),
       bondWei: s.bond.toString(),
@@ -471,6 +494,7 @@ async function main() {
       timeline: configTimeline.map((c) => ({ ...c, block: c.block.toString() })),
     },
     contracts: ADDR,
+    ens,
     epochs,
     snapshot,
     notes: [
@@ -483,6 +507,26 @@ async function main() {
   const out = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'state.json');
   const json = JSON.stringify(state, (k, v) => (typeof v === 'bigint' ? v.toString() : v), 2);
   writeFileSync(out, json);
+
+  // ---- Safe tx-builder payloads for completed epochs
+  const payoutsDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'payouts');
+  mkdirSync(payoutsDir, { recursive: true });
+  let payloadCount = 0;
+  for (const ep of epochs) {
+    if (ep.status !== 'complete') continue;
+    const payload = buildEpochPayload({
+      epochIndex: ep.index,
+      poolWei: ep.poolWei,
+      operators: ep.operators,
+      ens,
+      contracts: ADDR,
+      generatedAt: state.generatedAt,
+    });
+    const f = path.join(payoutsDir, `epoch-${ep.index}.safe.json`);
+    writeFileSync(f, JSON.stringify(payload, null, 2) + '\n');
+    payloadCount++;
+  }
+  console.log(`wrote ${payloadCount} payout payload(s) to payouts/`);
   console.log(`wrote ${out} in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
 }
 

@@ -138,6 +138,14 @@ th { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color:
 td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 tbody tr:hover { background: var(--if-surface-muted); }
 td.addr { font-family: var(--font-mono); font-size: 0.75rem; }
+.addr-full { font-family: var(--font-mono); font-size: 0.75rem; }
+.ens { color: var(--accent); font-weight: 600; cursor: default; }
+.btn {
+  font: inherit; font-size: 0.8rem; font-weight: 600;
+  color: #fff; background: var(--accent); border: 1px solid var(--accent);
+  border-radius: var(--radius); padding: 0.45rem 0.8rem; cursor: pointer;
+}
+.btn:hover { background: var(--accent-hover, #2f4c31); }
 .payout { font-weight: 700; color: var(--ink); }
 .table-tools input {
   font: inherit; font-size: 0.875rem;

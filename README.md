@@ -17,11 +17,23 @@ blocks, max 8 credits per operator).
   ticket-block accrual and estimated payouts for each epoch. Writes
   `state.json` at the repo root.
 - `index.html` / `app.js` / `styles.css` — fully static frontend that renders
-  `state.json`. Styling follows the Open Design System tokens used by
-  governance.theinterfold.com.
+  `state.json`. Styling follows the Interfold site theme tokens (`--if-*`)
+  used by governance.theinterfold.com.
+- `tools/ens.mjs` + `tools/crypto.mjs` — forward-confirmed ENS reverse
+  resolution (self-contained keccak256/namehash, no dependencies); resolved
+  names are stored in `state.json` (`ens` map + per-row `ens` fields) and
+  shown in the tables.
+- `tools/safe.mjs` — builds per-epoch **Safe transaction-builder payloads**
+  for completed epochs into `payouts/epoch-N.safe.json`: one
+  `approve(voteEscrow, total)` on FOLD followed by one
+  `createLockFor(value, operator)` per recipient (IPP-001 §3 settlement).
+  The format matches the Safe Transaction Builder import format, so a file
+  can be uploaded directly at app.safe.global (Foundation Safe, Ethereum
+  Mainnet) for review, simulation, and signing. The frontend's "Download
+  Safe payload" button serves these files.
 - `.github/workflows/refresh.yml` — runs `track.mjs` three times a day on a
-  schedule (and on demand), commits the new `state.json`, and GitHub Pages
-  serves the result. No server, no build step.
+  schedule (and on demand), commits the new `state.json` + `payouts/`, and
+  GitHub Pages serves the result. No server, no build step.
 
 ### "Active" predicate (per block, per node)
 

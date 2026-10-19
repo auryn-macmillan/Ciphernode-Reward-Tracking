@@ -26,11 +26,11 @@ jobs:
           RPC_URL: ${{ secrets.RPC_URL }}
         run: node tools/track.mjs
 
-      - name: Commit state.json
+      - name: Commit state + payout payloads
         run: |
           git config user.name "rewards-tracker[bot]"
           git config user.email "rewards-tracker[bot]@users.noreply.github.com"
-          git add state.json
+          git add state.json payouts/
           if git diff --cached --quiet; then
             echo "no state change"
           else
