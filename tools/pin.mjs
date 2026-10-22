@@ -138,10 +138,9 @@ async function main() {
     results.push([`epoch ${ep.index} safe payload`, rec.safeCid, sf]);
   }
 
-  writeFileSync(join('pinnings.json'), JSON.stringify(pinnings, null, 2) + '\n');
-
   for (const [name, cid, status] of results) console.log(`${status.padEnd(10)} ${name.padEnd(30)} ${cid}`);
-  console.log(`\npinnings.json written${DRY ? ' (dry-run, not saved)' : ''}`);
+  if (!DRY) writeFileSync(join('pinnings.json'), JSON.stringify(pinnings, null, 2) + '\n');
+  console.log(`pinnings.json ${DRY ? 'not written (dry-run)' : 'written'}`);
 }
 
 main().catch((e) => {
