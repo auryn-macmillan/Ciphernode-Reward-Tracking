@@ -1,1 +1,21 @@
-{"epochs": {}, "state": null}
+{
+  "epochs": {
+    "1": {
+      "sheetCid": "(dry-run)",
+      "safeCid": "(dry-run)"
+    },
+    "2": {
+      "sheetCid": "(dry-run)",
+      "safeCid": "(dry-run)"
+    },
+    "3": {
+      "sheetCid": "(dry-run)",
+      "safeCid": "(dry-run)"
+    },
+    "4": {
+      "sheetCid": "(dry-run)",
+      "safeCid": "(dry-run)"
+    }
+  },
+  "state": null
+}
