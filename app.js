@@ -65,7 +65,17 @@
         <div class="e-dates">${fmtDate(e.startTs)} → ${fmtDate(e.endTs)}</div>
         <span class="badge ${e.status}">${e.status}</span>
         <div class="progress"><i style="width:${pct}%"></i></div>`;
-      b.onclick = () => { selectedEpoch = e.index; epochs(); table(); };
+      if (e.status === 'complete' && STATE.pinnings?.epochs?.[e.index]?.sheetCid) {
+        const c = STATE.pinnings.epochs[e.index].sheetCid;
+        const b2 = document.createElement('a');
+        b2.className = 'e-settlement';
+        b2.href = `https://ipfs.io/ipfs/${c}`;
+        b2.target = '_blank';
+        b2.rel = 'noopener';
+        b2.textContent = 'Settlement sheet ↗';
+        b.appendChild(b2);
+      }
+      b.onclick = (ev) => { if (!ev.target.closest('a')) { selectedEpoch = e.index; epochs(); table(); } };
       g.appendChild(b);
     });
   }
@@ -159,6 +169,14 @@
     $('#proposal-link').href = STATE.program.proposal;
     $('#proposal-link-2').href = STATE.program.proposal;
     $('#notes').innerHTML = STATE.notes.map((n) => `<li>${n}</li>`).join('');
+    const ipfs = STATE.pinnings?.state?.cid;
+    const chip = $('#meta-ipfs');
+    if (ipfs) {
+      chip.hidden = false;
+      chip.href = `https://ipfs.io/ipfs/${ipfs}`;
+    } else {
+      chip.hidden = true;
+    }
   }
 
   function render() {
@@ -172,7 +190,11 @@
     })
     .then((s) => {
       STATE = s;
-      const cur = s.epochs.find((e) => e.status === 'in-progress') ?? s.epochs.find((e) => e.status === 'complete') ?? s.epochs[0];
+      return fetch('pinnings.json').then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
+    })
+    .then((pinnings) => {
+      STATE.pinnings = pinnings;
+      const cur = STATE.epochs.find((e) => e.status === 'in-progress') ?? STATE.epochs.find((e) => e.status === 'complete') ?? STATE.epochs[0];
       selectedEpoch = cur.index;
       render();
       $('#search').addEventListener('input', table);

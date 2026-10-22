@@ -32,9 +32,22 @@ blocks, max 8 credits per operator).
   can be uploaded directly at app.safe.global (Foundation Safe, Ethereum
   Mainnet) for review, simulation, and signing. The frontend's "Download
   Safe payload" button serves these files.
+- `tools/pin.mjs` — pins the IPP-001 settlement artifacts to IPFS via
+  [Pinata](https://pinata.cloud) so each epoch's 48-hour dispute sheet
+  (IPP-001 §3) is immutable and citable. Per completed epoch it pins
+  `payouts/epoch-N.settlement.md` (a human-readable sheet: epoch bounds,
+  pool, per-operator entitlements) and the Safe payload; it also pins
+  `state.json` whenever its content changes. CIDs are recorded in
+  `pinnings.json`, and the frontend links each pinned sheet + the latest
+  snapshot. Auth is via a GitHub secret: **`PINATA_JWT`** (a Pinata
+  Developer JWT, recommended) — or, as a fallback, `PINATA_API_KEY` +
+  `PINATA_API_USER` (legacy API key). Pinning is best-effort: if the secret
+  is unset or Pinata errors, the run logs and continues (the state refresh
+  is unaffected). See *IPFS pinning* below.
 - `.github/workflows/refresh.yml` — runs `track.mjs` three times a day on a
-  schedule (and on demand), commits the new `state.json` + `payouts/`, and
-  GitHub Pages serves the result. No server, no build step.
+  schedule (and on demand), commits the new `state.json` + `payouts/` +
+  `pinnings.json`, pins the artifacts, and GitHub Pages serves the result.
+  No server, no build step.
 
 ### "Active" predicate (per block, per node)
 
@@ -79,13 +92,39 @@ blocks and logs from T0 forward). Block-boundary discovery uses a handful of
 `eth_getBlockByNumber` binary searches; the rest is `eth_getLogs` — cheap
 enough for a hosted free tier at the current registration volume.
 
+## IPFS pinning
+
+Each completed epoch's settlement sheet (the artifact IPP-001 §3 pins for its
+48-hour dispute window) is pinned to IPFS so it is immutable and citable, along
+with the full `state.json` snapshot. CIDs land in `pinnings.json` and the page
+links them ("Snapshot (IPFS)" in the header, "Settlement sheet ↗" on each
+settled epoch card).
+
+To enable it, add a repository secret:
+
+- **`PINATA_JWT`** *(recommended)* — a **Pinata Developer JWT (PDJ)**. Create it
+  in the Pinata dashboard under *Account management → API keys → Developer
+  JWTs* (grant it pinning permission). The workflow uses it as
+  `Authorization: Bearer <jwt>` against Pinata's v3 upload API.
+- *Or* the legacy pair **`PINATA_API_KEY`** + **`PINATA_API_USER`** (your API
+  key and its account user id) — used with the v1 `pinByString` endpoint.
+
+Pinning runs after each refresh and is **best-effort**: if the secret is unset
+or Pinata is unavailable, `tools/pin.mjs` logs and exits cleanly, so the state
+refresh and Pages deploy are never blocked. Re-pin behavior: `state.json` is
+re-pinned only when its content changes; each epoch's sheet and Safe payload are
+pinned exactly once (on the first refresh after the epoch completes).
+
 ## Deploying
 
 1. Create the repo and push this directory to `main`.
 2. Add a repository secret `RPC_URL` with an archive-node mainnet RPC URL
    (e.g. an Alchemy key with archive access).
-3. Settings → Pages → Source: *Deploy from a branch* → `main` / `/ (root)`.
-4. The scheduled workflow refreshes `state.json` three times a day; the page
+3. *(Optional)* Add `PINATA_JWT` (or `PINATA_API_KEY` + `PINATA_API_USER`) to
+   enable IPFS pinning of settlement sheets. Without it, the tracker works
+   fully; only the IPFS links are omitted.
+4. Settings → Pages → Source: *Deploy from a branch* → `main` / `/ (root)`.
+5. The scheduled workflow refreshes `state.json` three times a day; the page
    picks it up on the next load.
 
 ## Caveats

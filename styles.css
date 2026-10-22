@@ -146,6 +146,12 @@ td.addr { font-family: var(--font-mono); font-size: 0.75rem; }
   border-radius: var(--radius); padding: 0.45rem 0.8rem; cursor: pointer;
 }
 .btn:hover { background: var(--accent-hover, #2f4c31); }
+.e-settlement {
+  display: inline-block; margin-top: 0.35rem;
+  font-size: 0.68rem; font-weight: 600; color: var(--accent);
+  text-decoration: none; border-bottom: 1px solid var(--mint-line);
+}
+.e-settlement:hover { color: var(--ink); border-bottom-color: var(--accent); }
 .payout { font-weight: 700; color: var(--ink); }
 .table-tools input {
   font: inherit; font-size: 0.875rem;

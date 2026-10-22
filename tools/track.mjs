@@ -452,6 +452,64 @@ async function main() {
     });
   }
 
+  // ---- per-epoch settlement sheets (the 48h-dispute artifact, IPP-001 §3)
+  const fmtFold = (weiStr) => {
+    const w = BigInt(weiStr);
+    const whole = w / 10n ** 18n;
+    const frac = (w % 10n ** 18n).toString().padStart(18, '0').slice(0, 4);
+    const s = frac && frac !== '0000' ? `${whole}.${frac.replace(/0+$/, '')}` : `${whole}`;
+    const [i, d] = s.split('.');
+    return i.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + (d ? '.' + d : '');
+  };
+  const fmtTs = (ts) => new Date(Number(ts) * 1000).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+  const payoutsDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'payouts');
+  mkdirSync(payoutsDir, { recursive: true });
+  for (const ep of epochs) {
+    const rows = ep.operators
+      .map((o) => {
+        const tb = BigInt(o.ticketBlocks);
+        const blocks = BigInt(ep.blocksObserved) || 1n;
+        const avg = tb / blocks;
+        const cap = PROGRAM.cap;
+        return `| ${o.operator} | ${o.ens ?? '—'} | ${avg > cap ? cap : avg} | ${Number(o.ticketBlocks).toLocaleString()} | ${o.sharePct.toFixed(4)}% | ${fmtFold(o.estPayoutWei)} |`;
+      })
+      .join('\n');
+    const md = `# IPP-001 · Epoch ${ep.index} Settlement Sheet
+
+> Unofficial settlement computation for the Interfold Initial Ciphernode Rewards
+> Program (IPP-001), epoch ${ep.index} of ${PROGRAM.epochs}. Recomputed from
+> Ethereum mainnet by the Ciphernode Rewards Tracker. The Foundation's published
+> settlement sheet and its 48-hour dispute window govern final payouts.
+
+- **Epoch:** ${ep.index} of ${PROGRAM.epochs}
+- **Start block:** ${ep.startBlock ?? '—'} · ${fmtTs(ep.startTs)}
+- **End block:** ${ep.endBlock ?? '—'} · ${fmtTs(ep.endTs)}
+- **Pool weight:** ${PROGRAM.weights[ep.index - 1]} (Fibonacci 1:1:2:3:5:8)
+- **Pool:** ${fmtFold(ep.poolWei)} FOLD
+- **Total ticket-blocks:** ${Number(ep.totalTicketBlocks).toLocaleString()}
+- **Operators:** ${ep.operatorCount}
+- **Status:** ${ep.status}
+
+## Per-operator entitlements
+
+Default bond-owner attribution (IPP-001 §3). Entitlement = pool × ticket-blocks ÷ total ticket-blocks.
+
+| Operator | ENS | Credited tickets/block* | Ticket-blocks | Share | Entitlement (FOLD) |
+| --- | --- | --- | --- | --- | --- |
+${rows}
+
+* Average credited tickets per block over ${Number(ep.blocksObserved).toLocaleString()} observed blocks (cap ${PROGRAM.cap}/operator).
+
+## Notes
+
+- Attribution defaults to the bond owner of record per block. Foundation common-control determinations (IPP-001 §3) may merge operators; the ${PROGRAM.cap}-credit cap then applies to the merged group.
+- Full recomputable dataset: \`state.json\`. Safe payout payload for this epoch: \`payouts/epoch-${ep.index}.safe.json\`.
+- Payouts are delivered as VE-locked FOLD (\`createLockFor\`, 30-day term) by the Foundation Safe after the 48-hour dispute window.
+- Pin CIDs for this sheet and its dependencies are recorded in \`pinnings.json\`.
+`;
+    writeFileSync(path.join(payoutsDir, `epoch-${ep.index}.settlement.md`), md);
+  }
+
   // current snapshot of every registered node
   applyUpTo(head);
   applyCfgUpTo(head);
@@ -509,8 +567,6 @@ async function main() {
   writeFileSync(out, json);
 
   // ---- Safe tx-builder payloads for completed epochs
-  const payoutsDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'payouts');
-  mkdirSync(payoutsDir, { recursive: true });
   let payloadCount = 0;
   for (const ep of epochs) {
     if (ep.status !== 'complete') continue;
