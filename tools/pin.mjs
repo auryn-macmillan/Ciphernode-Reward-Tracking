@@ -14,7 +14,7 @@
  *
  * Best-effort: on missing creds or API error it logs and exits 0 so a Pinata
  * hiccup never fails the state refresh. Pass --dry-run to print what would be
- * pinned without calling the API.
+ * pinned (and to skip the credentials check) without calling the API.
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
