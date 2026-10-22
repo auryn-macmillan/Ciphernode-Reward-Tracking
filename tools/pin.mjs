@@ -48,7 +48,7 @@ function loadPinnings() {
 async function uploadV3(name, bytes, keyvalues) {
   const fd = new FormData();
   fd.set('file', new Blob([bytes]), name);
-  fd.set('network', 'mainnet');
+  fd.set('network', 'public'); // v3 enum: public | private (private = Pinata-only storage)
   fd.set('name', name);
   if (keyvalues) fd.set('keyvalues', JSON.stringify(keyvalues));
   const res = await fetch('https://uploads.pinata.cloud/v3/files', {
