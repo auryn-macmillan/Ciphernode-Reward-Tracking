@@ -1,4 +1,5 @@
 {
-  "stage": "fatal",
-  "error": "upload ok but no cid: {\"data\":{\"id\":\"01a16507-7e5a-78be-89af-d5971190f60b\",\"user_id\":\"2eea7bf8-2932-444c-a577-c829c0c08a57\",\"cid\":\"bafkreied6ms4u5rz3mcj3gl7x3f3a6lcbp3dqita5b2m3rfckvlv4dogmu\",\"cid_version\":\"v1\",\"network\":\"public\",\"name\":\"ipp-001-state.json\",\"size\":50321,\"number_of_files\":1,\"mime_type\":\"application/json\",\"vectorized\":false,\"streamable\":false,\"keyvalues\":{\"kind\":\"state\",\"program\":\"IPP-001\"},\"created_at\":"
+  "stage": "auth",
+  "http": 200,
+  "body": "{\"message\":\"Congratulations! You are communicating with the Pinata API!\"}"
 }
