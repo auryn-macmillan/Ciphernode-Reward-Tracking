@@ -56,9 +56,11 @@ async function uploadV3(name, bytes, keyvalues) {
     headers: { Authorization: 'Bearer ' + JWT },
     body: fd,
   });
-  const j = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(`upload ${res.status}: ${JSON.stringify(j).slice(0, 300)}`);
-  if (!j.cid) throw new Error(`no cid in response: ${JSON.stringify(j).slice(0, 300)}`);
+  const raw = await res.text();
+  let j = {};
+  try { j = JSON.parse(raw); } catch { /* non-JSON body */ }
+  if (!res.ok) throw new Error(`upload HTTP ${res.status}: ${raw.slice(0, 400)}`);
+  if (!j.cid) throw new Error(`upload ok but no cid: ${raw.slice(0, 400)}`);
   return j.cid;
 }
 
@@ -90,6 +92,24 @@ async function main() {
   const pinnings = loadPinnings();
   const now = new Date().toISOString();
   const results = [];
+
+  // auth diagnostic — pin the workflow log so a failure is visible (pin is best-effort)
+  if (JWT) {
+    console.log('pin: Pinata JWT present → v3 upload API (uploads.pinata.cloud/v3/files)');
+    try {
+      const tr = await fetch('https://api.pinata.cloud/data/testAuthentication', {
+        headers: { Authorization: 'Bearer ' + JWT, Accept: 'application/json' },
+      });
+      const tj = await tr.json().catch(() => ({}));
+      console.log(`pin: testAuthentication → HTTP ${tr.status} (keytype=${tj.keytype ?? '?'}, user_id=${tj.user_id ?? '-'}, error=${tj.error ?? '-'})`);
+    } catch (e) {
+      console.log(`pin: testAuthentication network error: ${e.message}`);
+    }
+  } else if (API_KEY) {
+    console.log('pin: legacy API key present → v1 pinByString (api.pinata.cloud/pinning/pinByString)');
+  } else {
+    console.log('pin: NO Pinata credential in env — nothing to do');
+  }
 
   // 1) state.json — pin when content changed since last pin
   const stateBuf = readFileSync(join('state.json'));
