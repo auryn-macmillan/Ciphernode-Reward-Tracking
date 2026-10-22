@@ -1,5 +1,0 @@
-{
-  "stage": "auth",
-  "http": 200,
-  "body": "{\"message\":\"Congratulations! You are communicating with the Pinata API!\"}"
-}

@@ -45,15 +45,6 @@ function loadPinnings() {
   }
 }
 
-// Diagnostic: pin is best-effort (exits 0 on error), so a failure is invisible
-// in the run conclusion. Write the exact failure to a committed file so it can
-// be read back from the repo (we have no GitHub API token to read Actions logs).
-function writeDiag(obj) {
-  try {
-    writeFileSync(join('pin-diag.json'), JSON.stringify(obj, null, 2) + '\n');
-  } catch { /* best-effort */ }
-}
-
 async function uploadV3(name, bytes, keyvalues) {
   const fd = new FormData();
   fd.set('file', new Blob([bytes]), name);
@@ -69,14 +60,8 @@ async function uploadV3(name, bytes, keyvalues) {
   let j = {};
   try { j = JSON.parse(raw); } catch { /* non-JSON body */ }
   const cid = j?.cid ?? j?.data?.cid;
-  if (!res.ok) {
-    writeDiag({ stage: 'upload', http: res.status, body: raw.slice(0, 500), network: 'public' });
-    throw new Error(`upload HTTP ${res.status}: ${raw.slice(0, 400)}`);
-  }
-  if (!cid) {
-    writeDiag({ stage: 'upload-no-cid', http: res.status, body: raw.slice(0, 500) });
-    throw new Error(`upload ok but no cid: ${raw.slice(0, 400)}`);
-  }
+  if (!res.ok) throw new Error(`upload HTTP ${res.status}: ${raw.slice(0, 400)}`);
+  if (!cid) throw new Error(`upload ok but no cid: ${raw.slice(0, 400)}`);
   return cid;
 }
 
@@ -120,10 +105,8 @@ async function main() {
       let tj = {};
       try { tj = JSON.parse(traw); } catch { /* non-JSON */ }
       console.log(`pin: testAuthentication → HTTP ${tr.status}: ${traw.slice(0, 200)}`);
-      writeDiag({ stage: 'auth', http: tr.status, body: traw.slice(0, 400) });
     } catch (e) {
       console.log(`pin: testAuthentication network error: ${e.message}`);
-      writeDiag({ stage: 'auth-network', error: e.message });
     }
   } else if (API_KEY) {
     console.log('pin: legacy API key present → v1 pinByString (api.pinata.cloud/pinning/pinByString) — NOTE: this endpoint returns 404 (retired)');
@@ -184,7 +167,6 @@ async function main() {
 }
 
 main().catch((e) => {
-  writeDiag({ stage: 'fatal', error: String(e && e.message || e) });
   console.error('pin: ' + e.message);
   process.exit(0); // best-effort: never fail the refresh
 });
