@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "chainId": "1",
-  "createdAt": 1792690827831,
+  "createdAt": 1792693334751,
   "meta": {
     "name": "IPP-001 Epoch 1 ciphernode rewards — VE-lock 599999.999999999999999993 FOLD to 12 operators",
     "description": "Settlement of IPP-001 epoch 1 (pool 600000 FOLD). Call 1 approves the Vote Escrow to pull the total; calls 2..13 createLockFor() each operator's payout as a 30-day VE-locked FOLD lock (minted to the operator; voting power delegates to them). Recipients (default bond-owner attribution; check the epoch settlement sheet and any common-control determinations before executing): 0xjoshua.eth (0x1df428833f2c9fb1ef098754e5d710432450d706) = 4351.071628917507872858 FOLD; 0x8b405dbf2f30844b608b08dad20447a6955a6c6e = 42638.543023949518724196 FOLD; 0x291bd021638b9aef86c6d47e29cda1cf3804bafb = 42531.691781655422552141 FOLD; adrianleb.eth (0x8d138c01765483cb79d787ce5933f609cbfdabcf) = 37157.964721281502565913 FOLD; 0x0b304924faa64b0f040dca67bc5175dd6078db52 = 25212.886259820667998349 FOLD; bezpok.eth (0x2179a7a0be3eb10c45a9aeec11f260e2bc4b1a7c) = 24010.809784012086062739 FOLD; 0x2deb5ff7d2cdfa92a73f0b0b534e51875c81a5ed = 23793.545591347423846229 FOLD; austingriffith.eth (0x34aa3f359a9d614239015126635ce7732c18fdf3) = 225201.459113075327157727 FOLD; 0x8dcb4a4e9621c492a82c0e3e105ab69124c401a2 = 14043.814945520706880329 FOLD; 0xcb6ce8c3a16def797167e8a2aed7998a065f2513 = 10837.387249678704250601 FOLD; buidlguidl.eth (0x97843608a00e2bbc75ab0c1911387e002565dede) = 90425.089858926679271155 FOLD; 0xbb66ff0728ec074f3e374947246e8daa7e6aa587 = 59795.736041814452817756 FOLD",
