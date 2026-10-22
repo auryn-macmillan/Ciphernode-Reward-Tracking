@@ -68,15 +68,16 @@ async function uploadV3(name, bytes, keyvalues) {
   const raw = await res.text();
   let j = {};
   try { j = JSON.parse(raw); } catch { /* non-JSON body */ }
+  const cid = j?.cid ?? j?.data?.cid;
   if (!res.ok) {
     writeDiag({ stage: 'upload', http: res.status, body: raw.slice(0, 500), network: 'public' });
     throw new Error(`upload HTTP ${res.status}: ${raw.slice(0, 400)}`);
   }
-  if (!j.cid) {
+  if (!cid) {
     writeDiag({ stage: 'upload-no-cid', http: res.status, body: raw.slice(0, 500) });
     throw new Error(`upload ok but no cid: ${raw.slice(0, 400)}`);
   }
-  return j.cid;
+  return cid;
 }
 
 async function pinV1(name, text, keyvalues) {
